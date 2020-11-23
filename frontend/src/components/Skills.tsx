@@ -14,7 +14,7 @@ const StyledSkillCategory = styled.div`
   box-shadow: 0 2px 4px black;
 
   @media screen and (min-width: 400px) {
-    width: calc(320px - 2rem);
+    width: auto;
     border-radius: 8px;
     margin: 0.5rem 1rem;
   }
@@ -22,7 +22,7 @@ const StyledSkillCategory = styled.div`
 
 const SkillGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto auto;
 `;
 
 interface SkillCategoryProps {
@@ -44,12 +44,10 @@ function SkillCategory({ category, skills }: SkillCategoryProps) {
 }
 
 const SkillName = styled.div`
-  text-align: right;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem 0.5rem 0;
 `;
 
 const SpecialityLabel = styled.div`
-  text-align: right;
   padding: 0 1rem 0.75rem;
   font-size: 0.75rem;
   color: #ddd;
@@ -88,7 +86,11 @@ const SkillCategories = styled.div`
   }
 `;
 
-export default function Skills({ skills }: { skills: Skill[] }) {
+interface SkillsProps {
+  skills: Skill[];
+}
+
+export default function Skills({ skills }: SkillsProps) {
   const categories = groupBy(skills, "category");
   return (
     <Section>

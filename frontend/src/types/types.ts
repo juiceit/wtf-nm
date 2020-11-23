@@ -40,9 +40,9 @@ export interface Character {
   totem: Merit;
   renown: Renown[];
   primalUrge: number;
-  gifts: [];
-  rites: [];
-  weapons: [];
+  gifts: any[];
+  rites: any[];
+  weapons: any[];
   health: {
     max: number;
     bashing: number;

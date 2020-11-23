@@ -14,7 +14,7 @@ const StyledAttributeCategory = styled.div`
   box-shadow: 0 2px 4px black;
 
   @media screen and (min-width: 400px) {
-    width: calc(320px - 2rem);
+    width: auto;
     border-radius: 8px;
     margin: 0.5rem 1rem;
   }
@@ -22,7 +22,7 @@ const StyledAttributeCategory = styled.div`
 
 const AttributeGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto auto;
 `;
 
 interface AttributeCategoryProps {
@@ -44,8 +44,7 @@ function AttributeCategory({ category, attributes }: AttributeCategoryProps) {
 }
 
 const AttributeName = styled.div`
-  text-align: right;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem 0.5rem 0;
 `;
 
 function AttributeRow({ name, level }: Attribute) {
@@ -67,11 +66,11 @@ const AttributeCategories = styled.div`
   }
 `;
 
-export default function Attributes({
-  attributes,
-}: {
+interface AttributesProps {
   attributes: Attribute[];
-}) {
+}
+
+export default function Attributes({ attributes }: AttributesProps) {
   const categories = groupBy(attributes, "category");
   return (
     <Section>
