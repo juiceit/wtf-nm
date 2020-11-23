@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { formatAuspice } from "../utils/helpers";
 
 const BasicInfoContainer = styled.div`
   width: 100%;
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,15 +32,23 @@ const BasicInfoPanel = styled.div`
   }
 `;
 
+const Header = styled.h1`
+  margin-bottom: 0;
+`;
+
+const FullName = styled.div`
+  margin: 0.5rem 0 1.5rem;
+`;
+
 const Information = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0 1rem;
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 400px) {
     grid-template-rows: auto auto;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto;
     grid-auto-flow: column;
   }
 `;
@@ -73,7 +83,6 @@ interface BasicInfoProps {
   name: string;
   fullName: string;
   player: string;
-  pack: string;
   auspice: string;
   tribe: string;
   virtue: string;
@@ -87,7 +96,6 @@ export default function BasicInfo({
   fullName,
   player,
   imageUrl,
-  pack,
   auspice,
   tribe,
   virtue,
@@ -98,15 +106,14 @@ export default function BasicInfo({
     <BasicInfoContainer>
       <Image src={imageUrl} alt={name} />
       <BasicInfoPanel>
-        <h1>{name}</h1>
+        <Header>{name}</Header>
+        <FullName>{fullName}</FullName>
         <Information>
-          <Info id="fullName" label="Full name" value={fullName} />
-          <Info id="player" label="Player" value={player} />
-          <Info id="auspice" label="Auspice" value={auspice} />
+          <Info id="auspice" label="Auspice" value={formatAuspice(auspice)} />
           <Info id="tribe" label="Tribe" value={tribe} />
           <Info id="virtue" label="Virtue" value={virtue} />
           <Info id="vice" label="Vice" value={vice} />
-          <Info id="pack" label="Pack" value={pack} />
+          <Info id="player" label="Player" value={player} />
           <Info id="exp" label="Experience" value={exp} />
         </Information>
       </BasicInfoPanel>

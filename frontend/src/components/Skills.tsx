@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { groupBy } from "lodash";
 import { Skill } from "../types/types";
-import { getCategoryHeader } from "../utils/helpers";
+import { formatAttributeCategory } from "../utils/helpers";
 import Level from "./Level";
 import { Section } from "./Section";
 
@@ -16,13 +16,19 @@ const StyledSkillCategory = styled.div`
   @media screen and (min-width: 400px) {
     width: auto;
     border-radius: 8px;
-    margin: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
 const SkillGrid = styled.div`
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto 1fr;
+
+  @media screen and (min-width: 400px) {
+    grid-template-columns: auto auto;
+    align-self: center;
+  }
 `;
 
 interface SkillCategoryProps {
@@ -33,7 +39,7 @@ interface SkillCategoryProps {
 function SkillCategory({ category, skills }: SkillCategoryProps) {
   return (
     <StyledSkillCategory>
-      <h3>{getCategoryHeader(category)}</h3>
+      <h3>{formatAttributeCategory(category)}</h3>
       <SkillGrid>
         {skills.map((skill) => (
           <SkillRow key={skill.name} {...skill} />
@@ -48,7 +54,7 @@ const SkillName = styled.div`
 `;
 
 const SpecialityLabel = styled.div`
-  padding: 0 1rem 0.75rem;
+  padding: 0 1rem 0.75rem 0;
   font-size: 0.75rem;
   color: #ddd;
 `;
@@ -77,12 +83,21 @@ function SkillRow({ name, level, speciality }: Skill) {
 }
 
 const SkillCategories = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin: -0.5rem -1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0 -1rem;
 
   @media screen and (min-width: 400px) {
-    margin: -0.5rem -1rem;
+    margin: 0;
+  }
+
+  @media screen and (min-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (min-width: 870px) {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 `;
 
