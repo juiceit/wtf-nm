@@ -5,6 +5,8 @@ import Attributes from "../components/Attributes";
 import BasicInfo from "../components/BasicInfo";
 import Skills from "../components/Skills";
 import { Section } from "../components/Section";
+import MeritsTotemFlaws from "../components/MeritsTotemFlaws";
+import RenownHarmonyPrimalUrge from "../components/RenownHarmonyPrimalUrge";
 
 const Main = styled.main`
   padding: 1rem;
@@ -30,6 +32,12 @@ export default function CharacterSheet({ character }: CharacterSheetProps) {
     imageUrl,
     attributes,
     skills,
+    merits,
+    totem,
+    flaws,
+    renown,
+    harmony,
+    primalUrge,
   } = character;
   return (
     <Main>
@@ -46,13 +54,12 @@ export default function CharacterSheet({ character }: CharacterSheetProps) {
       />
       <Attributes attributes={attributes} />
       <Skills skills={skills} />
-      <Section>
-        <h2>Merits</h2>
-        <h3>Totem</h3>
-      </Section>
-      <Section>
-        <h2>Renown</h2>
-      </Section>
+      <MeritsTotemFlaws merits={merits} totem={totem} flaws={flaws} />
+      <RenownHarmonyPrimalUrge
+        renown={renown}
+        harmony={harmony}
+        primalUrge={primalUrge}
+      />
       <Section>
         <h2>Gifts</h2>
       </Section>
@@ -69,8 +76,6 @@ export default function CharacterSheet({ character }: CharacterSheetProps) {
         <h3>Essence</h3>
         <h3>Current Form</h3>
         <h4>Turns in Gauru</h4>
-        <h3>Harmony</h3>
-        <h3>Primal Urge</h3>
       </Section>
     </Main>
   );

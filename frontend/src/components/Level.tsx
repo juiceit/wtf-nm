@@ -22,14 +22,20 @@ const LevelIndicator = styled.li<LevelIndicatorProps>`
   ${(props) => (props.filled ? `background-color: white` : "")}
 `;
 
-export default function Level({ level }: { level: number }) {
-  return (
-    <LevelList>
-      <LevelIndicator filled={level >= 1} />
-      <LevelIndicator filled={level >= 2} />
-      <LevelIndicator filled={level >= 3} />
-      <LevelIndicator filled={level >= 4} />
-      <LevelIndicator filled={level >= 5} />
-    </LevelList>
-  );
+interface LevelProps {
+  level: number;
+  maxLevel?: number;
+  minLevel?: number;
+}
+
+export default function Level({
+  level,
+  maxLevel = 5,
+  minLevel = 1,
+}: LevelProps) {
+  let levels: JSX.Element[] = [];
+  for (let i = minLevel; i <= maxLevel; i++) {
+    levels = [...levels, <LevelIndicator key={i} filled={i <= level} />];
+  }
+  return <LevelList>{levels.map((level) => level)}</LevelList>;
 }
