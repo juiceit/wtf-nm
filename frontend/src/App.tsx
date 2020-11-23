@@ -1,10 +1,9 @@
-import React from 'react';
-import CharacterSheet from './routes/CharacterSheet';
+import React from "react";
+import { AnaLucia } from "./assets/characters/AnaLucia";
+import CharacterSheet from "./routes/CharacterSheet";
 
 function App() {
-  return (
-    <CharacterSheet />
-  );
+  return <CharacterSheet character={AnaLucia} />;
 }
 
 export default App;
