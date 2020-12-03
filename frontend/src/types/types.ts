@@ -23,6 +23,17 @@ export interface Merit {
   maxLevel?: number;
 }
 
+export interface Gift {
+  name: string;
+  description: string;
+  type: string;
+  level: number;
+  effect: string;
+  cost?: string;
+  roll?: string[];
+  versus?: string[];
+}
+
 export interface Character {
   name: string;
   fullName: string;
@@ -40,7 +51,7 @@ export interface Character {
   totem: Merit;
   renown: Renown[];
   primalUrge: number;
-  gifts: any[];
+  gifts: Gift[];
   rites: any[];
   weapons: any[];
   health: {

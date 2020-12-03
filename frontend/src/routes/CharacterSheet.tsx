@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Character } from "../types/types";
 import Attributes from "../components/Attributes";
 import BasicInfo from "../components/BasicInfo";
+import Gifts from "../components/Gifts";
 import Skills from "../components/Skills";
 import { Section } from "../components/Section";
 import MeritsTotemFlaws from "../components/MeritsTotemFlaws";
@@ -60,9 +61,7 @@ export default function CharacterSheet({ character }: CharacterSheetProps) {
         harmony={harmony}
         primalUrge={primalUrge}
       />
-      <Section>
-        <h2>Gifts</h2>
-      </Section>
+      <Gifts character={character} />
       <Section>
         <h2>Rites</h2>
       </Section>
