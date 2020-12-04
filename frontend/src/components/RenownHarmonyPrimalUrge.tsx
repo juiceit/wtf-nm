@@ -1,9 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { Renown } from "../types/types";
-import Level from "./Level";
-import { Section } from "./Section";
-import RenownComponent from "./Renown";
+/* eslint-disable react/require-default-props */
+import React from 'react';
+import styled from 'styled-components';
+import { Renown } from '../types/types';
+import Level from './Level';
+import Section from './Section';
+import RenownComponent from './Renown';
 
 const SliderContainer = styled.div`
   display: flex;
@@ -49,7 +50,9 @@ interface SliderProps {
   maxLabel?: string;
 }
 
-function Slider({ value, min, max, minLabel, maxLabel }: SliderProps) {
+function Slider({
+  value, min, max, minLabel, maxLabel,
+}: SliderProps) {
   const length = max - min;
   const relativeValue = value - min;
   return (

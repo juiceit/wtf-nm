@@ -1,7 +1,7 @@
-import React from "react";
-import { Merit } from "../types/types";
-import Merits from "./Merits";
-import { Section } from "./Section";
+import React from 'react';
+import { Merit } from '../types/types';
+import Merits from './Merits';
+import Section from './Section';
 
 interface MeritsTotemFlawsProps {
   merits: Merit[];

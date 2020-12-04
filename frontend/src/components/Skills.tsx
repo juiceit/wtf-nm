@@ -1,10 +1,43 @@
-import React from "react";
-import styled from "styled-components";
-import { groupBy } from "lodash";
-import { Skill } from "../types/types";
-import { formatAttributeCategory } from "../utils/helpers";
-import Level from "./Level";
-import { Section } from "./Section";
+import React from 'react';
+import styled from 'styled-components';
+import { groupBy } from 'lodash';
+import { Skill } from '../types/types';
+import { formatAttributeCategory } from '../utils/helpers';
+import Level from './Level';
+import Section from './Section';
+
+const SkillName = styled.div`
+  padding: 0.5rem 1rem 0.5rem 0;
+`;
+
+const SpecialityLabel = styled.div`
+  padding: 0 1rem 0.75rem 0;
+  font-size: 0.75rem;
+  color: #ddd;
+`;
+
+const Speciality = styled.div`
+  margin-left: 4px;
+  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
+  color: #ddd;
+  font-weight: 700;
+`;
+
+function SkillRow({ name, level, speciality }: Skill) {
+  return (
+    <>
+      <SkillName>{name}</SkillName>
+      <Level level={level} />
+      {speciality && (
+        <>
+          <SpecialityLabel>Speciality:</SpecialityLabel>
+          <Speciality>{speciality}</Speciality>
+        </>
+      )}
+    </>
+  );
+}
 
 const StyledSkillCategory = styled.div`
   width: 100%;
@@ -49,39 +82,6 @@ function SkillCategory({ category, skills }: SkillCategoryProps) {
   );
 }
 
-const SkillName = styled.div`
-  padding: 0.5rem 1rem 0.5rem 0;
-`;
-
-const SpecialityLabel = styled.div`
-  padding: 0 1rem 0.75rem 0;
-  font-size: 0.75rem;
-  color: #ddd;
-`;
-
-const Speciality = styled.div`
-  margin-left: 4px;
-  margin-bottom: 0.75rem;
-  font-size: 0.75rem;
-  color: #ddd;
-  font-weight: 700;
-`;
-
-function SkillRow({ name, level, speciality }: Skill) {
-  return (
-    <>
-      <SkillName>{name}</SkillName>
-      <Level level={level} />
-      {speciality && (
-        <>
-          <SpecialityLabel>Speciality:</SpecialityLabel>
-          <Speciality>{speciality}</Speciality>
-        </>
-      )}
-    </>
-  );
-}
-
 const SkillCategories = styled.div`
   display: grid;
   grid-template-columns: 1fr;
@@ -106,7 +106,7 @@ interface SkillsProps {
 }
 
 export default function Skills({ skills }: SkillsProps) {
-  const categories = groupBy(skills, "category");
+  const categories = groupBy(skills, 'category');
   return (
     <Section>
       <h2>Skills</h2>

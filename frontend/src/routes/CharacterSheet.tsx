@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import { Character } from "../types/types";
-import Attributes from "../components/Attributes";
-import BasicInfo from "../components/BasicInfo";
-import Gifts from "../components/Gifts";
-import Skills from "../components/Skills";
-import { Section } from "../components/Section";
-import MeritsTotemFlaws from "../components/MeritsTotemFlaws";
-import RenownHarmonyPrimalUrge from "../components/RenownHarmonyPrimalUrge";
+import React from 'react';
+import styled from 'styled-components';
+import { Character } from '../types/types';
+import Attributes from '../components/Attributes';
+import BasicInfo from '../components/BasicInfo';
+import Gifts from '../components/Gifts';
+import Skills from '../components/Skills';
+import Section from '../components/Section';
+import MeritsTotemFlaws from '../components/MeritsTotemFlaws';
+import RenownHarmonyPrimalUrge from '../components/RenownHarmonyPrimalUrge';
 
 const Main = styled.main`
   padding: 1rem;

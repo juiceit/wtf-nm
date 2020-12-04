@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { formatAuspice } from "../utils/helpers";
+import React from 'react';
+import styled from 'styled-components';
+import { formatAuspice } from '../utils/helpers';
 
 const BasicInfoContainer = styled.div`
   width: 100%;

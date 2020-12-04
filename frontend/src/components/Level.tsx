@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const LevelList = styled.ul`
   list-style-type: none;
@@ -19,7 +19,7 @@ const LevelIndicator = styled.li<LevelIndicatorProps>`
   border-radius: 50%;
   border: 2px solid white;
   margin: 4px;
-  ${(props) => (props.filled ? `background-color: white` : "")}
+  ${(props) => (props.filled ? 'background-color: white' : '')}
 `;
 
 interface LevelProps {
@@ -37,5 +37,5 @@ export default function Level({
   for (let i = minLevel; i <= maxLevel; i++) {
     levels = [...levels, <LevelIndicator key={i} filled={i <= level} />];
   }
-  return <LevelList>{levels.map((level) => level)}</LevelList>;
+  return <LevelList>{levels.map((lvl) => lvl)}</LevelList>;
 }

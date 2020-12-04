@@ -1,10 +1,23 @@
-import React from "react";
-import styled from "styled-components";
-import { groupBy } from "lodash";
-import { Attribute } from "../types/types";
-import { formatAttributeCategory } from "../utils/helpers";
-import Level from "./Level";
-import { Section } from "./Section";
+import React from 'react';
+import styled from 'styled-components';
+import { groupBy } from 'lodash';
+import { Attribute } from '../types/types';
+import { formatAttributeCategory } from '../utils/helpers';
+import Level from './Level';
+import Section from './Section';
+
+const AttributeName = styled.div`
+  padding: 0.5rem 1rem 0.5rem 0;
+`;
+
+function AttributeRow({ name, level }: Attribute) {
+  return (
+    <>
+      <AttributeName>{name}</AttributeName>
+      <Level level={level} />
+    </>
+  );
+}
 
 const StyledAttributeCategory = styled.div`
   width: 100%;
@@ -49,19 +62,6 @@ function AttributeCategory({ category, attributes }: AttributeCategoryProps) {
   );
 }
 
-const AttributeName = styled.div`
-  padding: 0.5rem 1rem 0.5rem 0;
-`;
-
-function AttributeRow({ name, level }: Attribute) {
-  return (
-    <>
-      <AttributeName>{name}</AttributeName>
-      <Level level={level} />
-    </>
-  );
-}
-
 const AttributeCategories = styled.div`
   display: grid;
   grid-template-columns: 1fr;
@@ -86,7 +86,7 @@ interface AttributesProps {
 }
 
 export default function Attributes({ attributes }: AttributesProps) {
-  const categories = groupBy(attributes, "category");
+  const categories = groupBy(attributes, 'category');
   return (
     <Section>
       <h2>Attributes</h2>

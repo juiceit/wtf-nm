@@ -1,8 +1,21 @@
-import React from "react";
-import styled from "styled-components";
-import { Renown } from "../types/types";
-import Level from "./Level";
-import { Section } from "./Section";
+import React from 'react';
+import styled from 'styled-components';
+import { Renown } from '../types/types';
+import Level from './Level';
+import Section from './Section';
+
+const RenownName = styled.div`
+  padding: 0.5rem 1rem 0.5rem 0;
+`;
+
+function RenownRow({ name, level }: Renown) {
+  return (
+    <>
+      <RenownName>{name}</RenownName>
+      <Level level={level} />
+    </>
+  );
+}
 
 const StyledRenownCategory = styled.div`
   width: 100%;
@@ -42,19 +55,6 @@ function RenownCategory({ renowns }: RenownCategoryProps) {
         ))}
       </RenownGrid>
     </StyledRenownCategory>
-  );
-}
-
-const RenownName = styled.div`
-  padding: 0.5rem 1rem 0.5rem 0;
-`;
-
-function RenownRow({ name, level }: Renown) {
-  return (
-    <>
-      <RenownName>{name}</RenownName>
-      <Level level={level} />
-    </>
   );
 }
 
